@@ -1,7 +1,7 @@
 {
-  "name": "performance-matters-1819",
+  "name": "real-time-web-1819",
   "version": "1.0.0",
-  "description": "performance-matters",
+  "description": "real-time-web",
   "main": "index.js",
   "scripts": {
     "build": "npm run minify",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chelseadoeleman/web-app-from-scratch-18-19.git"
+    "url": "git+https://github.com/chelseadoeleman/real-time-web-1819.git"
   },
   "keywords": [],
   "author": "",
