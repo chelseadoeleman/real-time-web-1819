@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run minify",
-    "start": "nodemon ./server/js/index.js",
+    "start": "node ./server/js/index.js",
     "start-server": "concurrently \"npm run minify\" \"nodemon ./server/js/index.js\"",
     "minify": "npm run minify-js && npm run minify-css && npm run compress",
     "minify-js": "gulp minify-js",
