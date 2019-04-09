@@ -1,6 +1,14 @@
 const socket = io() 
 const form = document.querySelector('form')
 
+const emoticons = {
+    'api': '🐒',
+    'boom': '🌳',
+    'zon': '☀️',
+    'nederland': '🇳🇱',
+    'vakantie': '🏝'
+}
+
 if (form) {
     form.addEventListener('submit', (event) => {
         event.preventDefault() // prevents page reloading
@@ -14,7 +22,16 @@ if (form) {
         const messagesList = document.querySelector('#messages')
         if (messagesList) {
             const listItem = document.createElement('li')
-            listItem.innerText = message
+            Object.entries(emoticons).forEach(([name, emoticon]) => {
+                const newMessage = message.toLowerCase().replace(name, emoticon)
+                message = `${newMessage[0].toUpperCase()}${newMessage.slice(1)}`
+            })
+
+            if(message === 'Hoi') {
+                listItem.innerText = message + ' 😊'
+            } else {
+                listItem.innerText = message
+            }
             messagesList.appendChild(listItem)
         }
     })
