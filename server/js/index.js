@@ -48,7 +48,7 @@ io.on('connection', function(socket){
     })
 })
 
-http.listen(process.env.port || 8000, function(){
-    console.log('listening on *:8000')
-})
-
+http.listen({ port: process.env.PORT || 8000 }), () => {
+    process.on('SIGTERM')
+    console.log(`listening on port ${process.env.PORT || 8000}`)
+}
