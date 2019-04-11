@@ -24,11 +24,18 @@ const emoticons = [
     {name: 'ijs', emoticon: '🍦'},
     {name: 'perzik', emoticon: '🍑'},
     {name: 'banaan', emoticon: '🏝'},
-    {name: 'love', emoticon: '❤️'},
+    {name: 'hou van jou', emoticon: '❤️'},
     {name: 'auto', emoticon: '🚗'},
     {name: 'vliegtuig', emoticon: '✈️'},
     {name: 'voetbal', emoticon: '⚽️'},
-        
+    {name: 'pizza', emoticon: '🍕'},
+    {name: 'banaan', emoticon: '🍌'},
+    {name: 'wintersport', emoticon: '⛷ 🏂'},
+    {name: 'tennis', emoticon: '🎾'},
+    {name: 'winter', emoticon: '☃️'},
+    {name: 'lente', emoticon: '🌸'},
+    {name: 'zomer', emoticon: '🌴'},
+    {name: 'herfst', emoticon: '🍄'}
 ]
 
 if (form) {
@@ -77,10 +84,16 @@ if (form) {
                 newName.innerText = user
                 newMessageItem.innerText = message + ' 😊'
                 newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
+                if(newMessageItem.classList.contains('self')) {
+                    newName.style = 'text-align: right;'
+                }
             } else {
                 newName.innerText = user
                 newMessageItem.innerText = message
                 newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
+                if(newMessageItem.classList.contains('self')) {
+                    newName.style = 'text-align: right;'
+                }
             }
 
             newName.appendChild(newMessageItem)
