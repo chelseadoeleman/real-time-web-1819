@@ -2,6 +2,10 @@
 
 **During the first week of this course I learned how to build an chatbox with socket.io. The purpose of this chatbox was to experiment and add a crazy feature. In this case I build something that replaces words with some emoji's. But it's main feature is that the application is real-time 🤓**
 
+[The application can be found here](https://real-time-web-chelsea.herokuapp.com/)
+
+![Chatbox](./docs/chatapp.png)
+
 ## Table of Contents
 * **[How to install](#how-to-install)**
 * **[How to use](#how-to-use)**
@@ -41,19 +45,19 @@ npm install
 ## Week 1
 <details>
   <summary>What did I do in Week 1</summary>
-  See read main readme.
+  See main readme.
 </details>
 
 ## Week 2
 <details>
   <summary>What did I do in Week 2</summary>
-  Not there yet, coming soon...
+  We're not there yet, coming soon...
 </details>
 
 ## Week 3
 <details>
   <summary>What did I do in Week 3</summary>
-  Not there yet, coming soon...
+  We're not there yet, coming soon...
 </details>
 
 
