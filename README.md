@@ -122,11 +122,19 @@ In the end I found it hard to come up with features to add to the application so
 
 ## Resources
 
+* [npm](https://docs.npmjs.com/cli/run-script)
+* [markdown](https://guides.github.com/features/mastering-markdown/)
+* [heroku](https://www.heroku.com/)
+* [socket.io](https://socket.io/)
+* [socket.io chat](https://socket.io/demos/chat/)
+* [socket.io chat tutorial](https://socket.io/get-started/chat/)
+* [Gulp](https://gulpjs.com/)
+* [Ejs](https://ejs.co/)
+* [Nodemon](https://nodemon.io/)
+* [Express](https://expressjs.com/)
+* [Node](https://nodejs.org/en/)
+* [Helmet](https://github.com/helmetjs/helmet)
+* [Node-fetch](https://www.npmjs.com/package/node-fetch)
+
 ## License
 This repository is licensed as [MIT](LICENSE) by [Chelsea Doeleman](https://github.com/chelseadoeleman).
-
-[socket.io]:https://socket.io/
-[socket.io chat]:https://socket.io/demos/chat/
-[npm]:https://docs.npmjs.com/cli/run-script
-[markdown]:https://guides.github.com/features/mastering-markdown/
-[heroku]:https://www.heroku.com/
