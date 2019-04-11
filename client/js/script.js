@@ -32,7 +32,7 @@ if (form) {
             message.value = ''
         }
     })
-    socket.on('chat message', ({user, id, message}) => {
+    socket.on('chat message', ({user, id, time, message}) => {
         const ownUserName = state.get('username')
         const ownUserId = state.get('id')
 
@@ -44,18 +44,21 @@ if (form) {
         if (messagesList) {
             const newMessageItem = document.createElement('li')
             const newName = document.createElement('span')
+            const newDate = document.createElement('span')
             newName.classList.add('username')
+            newDate.classList.add('time')
 
             
             newName.innerText = user
+            newDate.innerText = time
             newMessageItem.innerText = message
             newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
             if(newMessageItem.classList.contains('self')) {
                 newName.style = 'text-align: right;'
             }
-
             newName.appendChild(newMessageItem)
             messagesList.appendChild(newName)
+            messagesList.appendChild(newDate)
         }
     })
 }
@@ -72,3 +75,4 @@ if (usernameForm) {
         }
     })
 }
+

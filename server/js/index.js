@@ -66,9 +66,12 @@ io.on('connection', function(socket){
         })
         const greetingWords = ['Hoi','Hee','Hallo','Hey','Heei','Hello','Hi']
         const includesGreetingWord = greetingWords.find((word) => message.includes(word))
+        const timeStamp = new Date()
+        const newTime = timeStamp.toLocaleString()
 
         io.emit('chat message', {
             ...restProps,
+            time: newTime,
             message: includesGreetingWord
                 ? `${message} 😊`
                 : message

@@ -72,6 +72,7 @@ const emoticons = [
     {name: 'zomer', emoticon: '🌴'},
     {name: 'herfst', emoticon: '🍄'}
 ]
+
 ```
 
 ## Week 1

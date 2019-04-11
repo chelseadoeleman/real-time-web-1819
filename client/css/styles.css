@@ -54,6 +54,13 @@ body {
     color: #2b2b2b;
 }
 
+#messages .time {
+    width: 98%;
+    font-weight: 700;
+    color: #969696;
+    text-align: center;
+}
+
 #messages li { 
     display: block;
     font-weight: 600;
