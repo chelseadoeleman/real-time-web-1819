@@ -74,25 +74,39 @@ const emoticons = [
 ]
 
 ```
-What I learned about sockets is that sending an ```io.emit``` will send an message to everyone and ```broadcast``` will send it to any other person, but the person the data is coming from (client). In the end I found it hard to come up with features to add to the application so I left it here. It will be nice to have something like an database behind it, so that the user will automatically come back in the chat as the person they were before. So their session isn't completely lost when they refresh the page. 
+What I learned about sockets is that sending an ```io.emit``` will send an message to everyone and ```broadcast``` will send it to any other person, but the person the data is coming from (client). I used state to set the username and an unique user id and to let the user see this in the chat. I used an user id, because people can choose the same nickname/ username and I hadn't had a databse set up yet.
+
+In the end I found it hard to come up with features to add to the application so I left it here. It will be nice to have something like an database behind it, so that the user will automatically come back in the chat as the person they were before. So their session isn't completely lost when they refresh the page. 
 
 
 ## Week 1
 <details>
   <summary>What did I do in Week 1</summary>
-  See main readme.
+  See main readme
+
+  For my concept see week 2
 </details>
 
 ## Week 2
 <details>
   <summary>What did I do in Week 2</summary>
-  We're not there yet, coming soon...
+
+  ## Concept
+
+  ![Concept](./docs/concept.JPG)
+
+  I want to use the twitter API for real-time data and connect it to the IUCN Red List Api. However I had to ask permission for an accesskey, but I haven't received an answer yet. If I cannot get an accesskey I will just filter all tweets to rhino's to see how much awareness they get. This I want to project on a map with the Mapbox Api. As an extra feature I would like to add an linechart where you can view the amount of tweets on a timeline. If I get to use the IUCN Red List Api the user would also be able to view this linechart for a specific animal.
+
+  <hr>
+  <i>More coming soon...</i>
 </details>
 
 ## Week 3
 <details>
   <summary>What did I do in Week 3</summary>
-  We're not there yet, coming soon...
+
+  <hr>
+  <i>We're not there yet, coming soon...</i>
 </details>
 
 
