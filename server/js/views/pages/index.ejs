@@ -4,11 +4,17 @@
     <% include ../components/head %>
 </head>
 <body>
-    
+
+    <form class="usernameForm">
+        <label for='usernameInput' class="title">What's your nickname?</label>
+        <input id='usernameInput' class="usernameInput" type="text" maxlength="14" />
+    </form>
+
     <ul id="messages"></ul>
 
-    <form action="">
-      <input id="message" autocomplete="off" /><button>Send</button>
+    <form class="messageForm" action="">
+        <input id="message" autocomplete="off" />
+        <button>Send</button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>

@@ -3,11 +3,12 @@
 const express = require('express')
 const helmet = require('helmet')
 const path = require('path')
+const bodyParser = require('body-parser')
 const compression = require('compression')
 const { decompress } = require('./helpers/decompress')
 const app = express()
 const http = require('http').Server(app)
-const handleIndexRoute = require('./routes/indexRoute')
+const { handleIndexRoute } = require('./routes/indexRoute')
 const io = require('socket.io')(http)
 
 app.get('*.js', decompress)
@@ -15,6 +16,7 @@ app.get('*.css', decompress)
 
 app.use(helmet())
 app.use(express.static(path.join(__dirname, '../public')))
+app.use(bodyParser.urlencoded({extended: true}))
 app.use(compression({
     filter: (request) => {
         if(request.headers.accept) {
@@ -31,20 +33,13 @@ app.get('/', handleIndexRoute)
 
 io.on('connection', function(socket){
     console.log('a user connected')
+
+    socket.on('chat message', function(payload){
+        io.emit('chat message', payload)
+    })
+
     socket.on('disconnect', function(){
         console.log('user disconnected')
-      })
-})
-
-io.on('connection', function(socket){
-    socket.on('chat message', function(msg){
-      console.log('message: ' + msg)
-    })
-})
-
-io.on('connection', function(socket){
-    socket.on('chat message', function(msg){
-      io.emit('chat message', msg)
     })
 })
 
