@@ -47,6 +47,32 @@ In this application you are able to open the chatbox and chat with other people 
 ## Features
 
 Words will be replaced with emoji's on the server, however assigning the username with unique id's will be done on the client. 
+```js
+
+const emoticons = [
+    {name: 'api', emoticon: '🐒'},
+    {name: 'boom', emoticon: '🌳'},
+    {name: 'zon', emoticon: '☀️'},
+    {name: 'nederland', emoticon: '🇳🇱'},
+    {name: 'vakantie', emoticon: '🏝'},
+    {name: 'sneeuw', emoticon: '❄️'},
+    {name: 'ijs', emoticon: '🍦'},
+    {name: 'perzik', emoticon: '🍑'},
+    {name: 'banaan', emoticon: '🏝'},
+    {name: 'hou van jou', emoticon: '❤️'},
+    {name: 'auto', emoticon: '🚗'},
+    {name: 'vliegtuig', emoticon: '✈️'},
+    {name: 'voetbal', emoticon: '⚽️'},
+    {name: 'pizza', emoticon: '🍕'},
+    {name: 'banaan', emoticon: '🍌'},
+    {name: 'wintersport', emoticon: '⛷ 🏂'},
+    {name: 'tennis', emoticon: '🎾'},
+    {name: 'winter', emoticon: '☃️'},
+    {name: 'lente', emoticon: '🌸'},
+    {name: 'zomer', emoticon: '🌴'},
+    {name: 'herfst', emoticon: '🍄'}
+]
+```
 
 ## Week 1
 <details>
