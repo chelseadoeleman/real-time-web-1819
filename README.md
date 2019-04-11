@@ -40,7 +40,13 @@ npm install
 
 ## How to use
 
+In this application you are able to open the chatbox and chat with other people who are also using the chatbox. Firstly you have to choose a nickname, which can we whatever you like! Then you are able to chat, by typing a message in the input field. Don't forget to press send (or enter, for the ones who figured that one out)! The fun part is that some words will be replaced by emoji's, to make your text messages more fun! I guess...
+
+![Chatbox](./docs/chatapp.png)
+
 ## Features
+
+Words will be replaced with emoji's on the server, however assigning the username with unique id's will be done on the client. 
 
 ## Week 1
 <details>
