@@ -46,7 +46,7 @@ In this application you are able to open the chatbox and chat with other people 
 
 ## Features
 
-Words will be replaced with emoji's on the server, however assigning the username with unique id's will be done on the client. 
+Words will be replaced with emoji's on the server, however assigning the username with unique id's will be done on the client. Here is an overview with words that will be replaced with n emoji.
 ```js
 
 const emoticons = [
@@ -74,6 +74,8 @@ const emoticons = [
 ]
 
 ```
+What I learned about sockets is that sending an ```io.emit``` will send an message to everyone and ```broadcast``` will send it to any other person, but the person the data is coming from (client). In the end I found it hard to come up with features to add to the application so I left it here. It will be nice to have something like an database behind it, so that the user will automatically come back in the chat as the person they were before. So their session isn't completely lost when they refresh the page. 
+
 
 ## Week 1
 <details>
@@ -95,6 +97,14 @@ const emoticons = [
 
 
 ## Checklist
+- [X] Setting up server with node.js and express
+- [X] Implement session with socket.io on server
+- [X] Replace words with emoji's
+- [X] Create username in chat
+- [X] Create unique users
+- [X] Divide code between server and client
+- [ ] Come up and create more features on the server
+- [ ] Set up localstorage with users and messages
 
 ## Resources
 
