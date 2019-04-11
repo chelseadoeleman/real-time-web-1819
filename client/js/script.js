@@ -14,29 +14,7 @@ const socket = io()
 const form = document.querySelector('.messageForm')
 const usernameForm = document.querySelector('.usernameForm')
 
-const emoticons = [
-    {name: 'api', emoticon: '🐒'},
-    {name: 'boom', emoticon: '🌳'},
-    {name: 'zon', emoticon: '☀️'},
-    {name: 'nederland', emoticon: '🇳🇱'},
-    {name: 'vakantie', emoticon: '🏝'},
-    {name: 'sneeuw', emoticon: '❄️'},
-    {name: 'ijs', emoticon: '🍦'},
-    {name: 'perzik', emoticon: '🍑'},
-    {name: 'banaan', emoticon: '🏝'},
-    {name: 'hou van jou', emoticon: '❤️'},
-    {name: 'auto', emoticon: '🚗'},
-    {name: 'vliegtuig', emoticon: '✈️'},
-    {name: 'voetbal', emoticon: '⚽️'},
-    {name: 'pizza', emoticon: '🍕'},
-    {name: 'banaan', emoticon: '🍌'},
-    {name: 'wintersport', emoticon: '⛷ 🏂'},
-    {name: 'tennis', emoticon: '🎾'},
-    {name: 'winter', emoticon: '☃️'},
-    {name: 'lente', emoticon: '🌸'},
-    {name: 'zomer', emoticon: '🌴'},
-    {name: 'herfst', emoticon: '🍄'}
-]
+
 
 if (form) {
     form.addEventListener('submit', (event) => {
@@ -68,32 +46,12 @@ if (form) {
             const newName = document.createElement('span')
             newName.classList.add('username')
 
-            emoticons.forEach(({ name, emoticon }) => {
-                const newMessage = message.toLowerCase().replace(name, emoticon)
-                message = `${newMessage[0].toUpperCase()}${newMessage.slice(1)}`
-            })
-
-            if(message === 'Hoi'
-                || message === 'Hee' 
-                || message === 'Hallo' 
-                || message === 'Hey' 
-                || message === 'Heei'
-                || message === 'Hello'
-                || message === 'Hi') 
-            {
-                newName.innerText = user
-                newMessageItem.innerText = message + ' 😊'
-                newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
-                if(newMessageItem.classList.contains('self')) {
-                    newName.style = 'text-align: right;'
-                }
-            } else {
-                newName.innerText = user
-                newMessageItem.innerText = message
-                newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
-                if(newMessageItem.classList.contains('self')) {
-                    newName.style = 'text-align: right;'
-                }
+            
+            newName.innerText = user
+            newMessageItem.innerText = message
+            newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
+            if(newMessageItem.classList.contains('self')) {
+                newName.style = 'text-align: right;'
             }
 
             newName.appendChild(newMessageItem)

@@ -10,6 +10,29 @@ const app = express()
 const http = require('http').Server(app)
 const { handleIndexRoute } = require('./routes/indexRoute')
 const io = require('socket.io')(http)
+const emoticons = [
+    {name: 'api', emoticon: '🐒'},
+    {name: 'boom', emoticon: '🌳'},
+    {name: 'zon', emoticon: '☀️'},
+    {name: 'nederland', emoticon: '🇳🇱'},
+    {name: 'vakantie', emoticon: '🏝'},
+    {name: 'sneeuw', emoticon: '❄️'},
+    {name: 'ijs', emoticon: '🍦'},
+    {name: 'perzik', emoticon: '🍑'},
+    {name: 'banaan', emoticon: '🏝'},
+    {name: 'hou van jou', emoticon: '❤️'},
+    {name: 'auto', emoticon: '🚗'},
+    {name: 'vliegtuig', emoticon: '✈️'},
+    {name: 'voetbal', emoticon: '⚽️'},
+    {name: 'pizza', emoticon: '🍕'},
+    {name: 'banaan', emoticon: '🍌'},
+    {name: 'wintersport', emoticon: '⛷ 🏂'},
+    {name: 'tennis', emoticon: '🎾'},
+    {name: 'winter', emoticon: '☃️'},
+    {name: 'lente', emoticon: '🌸'},
+    {name: 'zomer', emoticon: '🌴'},
+    {name: 'herfst', emoticon: '🍄'}
+]
 
 app.get('*.js', decompress)
 app.get('*.css', decompress)
@@ -35,7 +58,21 @@ io.on('connection', function(socket){
     console.log('a user connected')
 
     socket.on('chat message', function(payload){
-        io.emit('chat message', payload)
+        let { message, ...restProps } = payload
+        
+        emoticons.forEach(({ name, emoticon }) => {
+            const newMessage = message.toLowerCase().replace(name, emoticon)
+            message = `${newMessage[0].toUpperCase()}${newMessage.slice(1)}`
+        })
+        const greetingWords = ['Hoi','Hee','Hallo','Hey','Heei','Hello','Hi']
+        const includesGreetingWord = greetingWords.find((word) => message.includes(word))
+
+        io.emit('chat message', {
+            ...restProps,
+            message: includesGreetingWord
+                ? `${message} 😊`
+                : message
+        })
     })
 
     socket.on('disconnect', function(){
