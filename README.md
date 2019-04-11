@@ -4,7 +4,7 @@
 
 [The application can be found here](https://real-time-web-chelsea.herokuapp.com/)
 
-![Chatbox](./docs/chatapp.png)
+![Chatbox](./docs/app.png)
 
 ## Table of Contents
 * **[How to install](#how-to-install)**
@@ -42,7 +42,7 @@ npm install
 
 In this application you are able to open the chatbox and chat with other people who are also using the chatbox. Firstly you have to choose a nickname, which can we whatever you like! Then you are able to chat, by typing a message in the input field. Don't forget to press send (or enter, for the ones who figured that one out)! The fun part is that some words will be replaced by emoji's, to make your text messages more fun! I guess...
 
-![Chatbox](./docs/chatapp.png)
+![Chatbox](./docs/app.png)
 
 ## Features
 
