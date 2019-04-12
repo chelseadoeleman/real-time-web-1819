@@ -40,7 +40,7 @@ const emoticons = [
     {name: 'shit', emoticon: '💩'},
     {name: 'muziek', emoticon: '🎶'},
     {name: 'japan', emoticon: '⛩'},
-    {name: 'camera', emoticon: '📸'},
+    {name: 'foto', emoticon: '📸'},
     {name: 'douchen', emoticon: '🛁'},
     {name: 'bier', emoticon: '🍻'},
     {name: 'laptop', emoticon: '💻'}

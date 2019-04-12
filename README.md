@@ -70,7 +70,19 @@ const emoticons = [
     {name: 'winter', emoticon: '☃️'},
     {name: 'lente', emoticon: '🌸'},
     {name: 'zomer', emoticon: '🌴'},
-    {name: 'herfst', emoticon: '🍄'}
+    {name: 'herfst', emoticon: '🍄'},
+    {name: 'hockey', emoticon: '🏑'},
+    {name: 'fietsen', emoticon: '🚲'},
+    {name: 'regen', emoticon: '🌧'},
+    {name: 'raket', emoticon: '🚀'},
+    {name: 'oeps', emoticon: '🙈'},
+    {name: 'shit', emoticon: '💩'},
+    {name: 'muziek', emoticon: '🎶'},
+    {name: 'japan', emoticon: '⛩'},
+    {name: 'foto', emoticon: '📸'},
+    {name: 'douchen', emoticon: '🛁'},
+    {name: 'bier', emoticon: '🍻'},
+    {name: 'laptop', emoticon: '💻'}
 ]
 
 ```
