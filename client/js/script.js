@@ -55,6 +55,7 @@ if (form) {
             newMessageItem.classList.add(user + id === ownUserName + ownUserId ? 'self' : 'other')
             if(newMessageItem.classList.contains('self')) {
                 newName.style = 'text-align: right;'
+                newDate.style = 'text-align: right'
             }
             newName.appendChild(newMessageItem)
             messagesList.appendChild(newName)

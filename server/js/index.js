@@ -36,7 +36,14 @@ const emoticons = [
     {name: 'fietsen', emoticon: '🚲'},
     {name: 'regen', emoticon: '🌧'},
     {name: 'raket', emoticon: '🚀'},
-    {name: 'oeps', emoticon: '🙈'}
+    {name: 'oeps', emoticon: '🙈'},
+    {name: 'shit', emoticon: '💩'},
+    {name: 'muziek', emoticon: '🎶'},
+    {name: 'japan', emoticon: '⛩'},
+    {name: 'camera', emoticon: '📸'},
+    {name: 'douchen', emoticon: '🛁'},
+    {name: 'bier', emoticon: '🍻'},
+    {name: 'laptop', emoticon: '💻'}
 ]
 
 app.get('*.js', decompress)
