@@ -1,0 +1,28 @@
+{
+  "name": "real-time-web-1819",
+  "version": "1.0.0",
+  "description": "real-time-web",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/js/index.js",
+    "start-server": "nodemon ./server/js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chelseadoeleman/real-time-web-1819.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "helmet": "^3.16.0",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
