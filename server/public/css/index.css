@@ -1,0 +1,13 @@
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url('../assets/island.svg');
+    background-size: cover;
+    background-repeat: no-repeat;   
+    background-color: #090930;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
