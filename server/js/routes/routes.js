@@ -1,4 +1,10 @@
 const fetch = require('node-fetch')
+const userData = [{
+    id: undefined,
+    avatar: undefined,
+    name: undefined,
+    lives: undefined
+}]
 
 const handleIndexRoute = async (request, response) => {
     const url = 'https://api.twitter.com/1.1/search/tweets.json?q=rhino'
@@ -22,6 +28,8 @@ const handleGameRoute = (request, response) => {
 }
 
 const createAvatar = () => {
+    // const { animal } = request.body
+    // console.log(animal)
     const avatar = undefined
     //function that creates an avatar 
     //generate image and nickname
