@@ -21,8 +21,20 @@ const handleGameRoute = (request, response) => {
     response.render('../views/game.ejs')
 }
 
+const createAvatar = () => {
+    const avatar = undefined
+    //function that creates an avatar 
+    //generate image and nickname
+    if(avatar) {
+        response.status(304).redirect(`/game?avatar=${avatar.name}`)
+    } else {
+        response.status(409).redirect('/')
+    }
+}
+
 module.exports = {
     handleIndexRoute,
     handleAvatarRoute,
-    handleGameRoute
+    handleGameRoute,
+    createAvatar
 }
