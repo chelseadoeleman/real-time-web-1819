@@ -52,7 +52,11 @@ I will try to describe this in the best way I can, but it might be a bit vague. 
 9. Rhinos
 10. Pangolin
 
-Every time a tweets is about one of these endagered animals the user is able to feed their avatar and keeping it alive and happy! This application is made to create more awareness for these animals. In extra addition if I have some time left I want to create a bar chart in D3 with all the animals to see which animal get's the more awareness of them all.
+Every time a tweets is about one of these endagered animals the user is able to feed their avatar and keeping it alive and happy! But you have to be fast, because other player also want to keep their animals alive! After 15 minutes a bar will be lowered, reducing the amount of lives your animal has. This application is made to create more awareness for these animals. In extra addition if I have some time left I want to create a bar chart in D3 with all the animals to see which animal get's the more awareness of them all.
+
+![Interaction](./docs/interaction.png)
+
+An 'sketch' of the most important screen in the application.
 
 ## The twitter API
 
@@ -131,11 +135,14 @@ created_at: 'Thu Apr 18 21:45:48 +0000 2019',
 
 ## Data lifecycle
 
+This is kinda how the data will flow through the application, but it probably will need some tweeking. In this overview a database is included, but maybe due to time management, this will not be my main priority to fix in the application, thus I will be storing the data in a variable/ json file for now.
+
+![Data lifecycle](./docs/data.jpg)
 
 
 ## Feedback
 
-
+I would like to receive some feedback on my data lifecycle, because I still found it quite complicated to make. I also feel like I messed up here and there and it might not be complete yet. I also changed my concept, but wasn't fully approved yet, so I would like to get some feedback on that as well.
 
 ## Week 1
 <details>
