@@ -58,7 +58,7 @@ Every time a tweets is about one of these endagered animals the user is able to 
 
 The twitter API makes use of an OAuth authorization. Personally I don't intent to use personal account information for my application. The twitter API also makes use of sockets to get real-time data. By creating a developers account an creating an app I was able to get all the specific API keys to get the right data from the API. This is an example of all the data from a specific tweet about rhino's. The data I specifically want are ```id``` and ```text```.
 
-```json
+```
 {
 created_at: 'Thu Apr 18 21:45:48 +0000 2019',
   id: 1118994058628587500,
