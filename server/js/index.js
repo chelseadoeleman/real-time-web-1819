@@ -22,6 +22,7 @@ const client = new Twitter({
  
 client.stream('statuses/filter', {track: 'rhino'}, (stream) => {
   stream.on('data', function(event) {
+    console.log(event)
     const text = event && event.text
     const data = {
         'text': text

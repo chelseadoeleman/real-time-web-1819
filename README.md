@@ -1,15 +1,13 @@
-# Real-Time Web | Crazy chatbox? 🤷‍
+# Real-Time Web | Animal Crossing x Twitter ‍🐘
 
-**During the first week of this course I learned how to build an chatbox with socket.io. The purpose of this chatbox was to experiment and add a crazy feature. In this case I build something that replaces words with some emoji's. But it's main feature is that the application is real-time 🤓**
-
-[The application can be found here](https://real-time-web-chelsea.herokuapp.com/)
-
-![Chatbox](./docs/app.png)
+**For this course I have to build an real-time application that get's data from an external server. This can be an API with static data or an API with real-time data. I chose the real-time API twitter. The user should also be able interact on a page real-time, where data get's stored in a database or an data object.**
 
 ## Table of Contents
 * **[How to install](#how-to-install)**
-* **[How to use](#how-to-use)**
-* **[Features](#features)**
+* **[Concept](#concept)**
+* **[The Twitter API](#the-twitter-api)**
+* **[Data lifecycle](#data-lifecycle)**
+* **[Feedback](#feedback)**
 * **[Week 1](#week-1)**
 * **[Week 2](#week-2)**
 * **[Week 3](#week-3)**
@@ -37,6 +35,124 @@ Install the dependencies in [package.json](./package.json)
 ```bash
 npm install
 ```
+
+## Concept
+
+I will try to describe this in the best way I can, but it might be a bit vague. I want to create an application where the user is able to create an avatar and keep it alive by giving it some "food". However there is catch the user is only able to give food to their avatar based on a certain amount of tweets about the top 10 most endangered animals as of right now. 
+
+**Top 10 most endangered animals**
+1. Amur leopard
+2. Gorillas
+3. Sea turtles
+4. Orangutan
+5. Sumatran elephant
+6. Saola
+7. Vaquita
+8. Tiger
+9. Rhinos
+10. Pangolin
+
+Every time a tweets is about one of these endagered animals the user is able to feed their avatar and keeping it alive and happy! This application is made to create more awareness for these animals. In extra addition if I have some time left I want to create a bar chart in D3 with all the animals to see which animal get's the more awareness of them all.
+
+## The twitter API
+
+The twitter API makes use of an OAuth authorization. Personally I don't intent to use personal account information for my application. The twitter API also makes use of sockets to get real-time data. By creating a developers account an creating an app I was able to get all the specific API keys to get the right data from the API. This is an example of all the data from a specific tweet about rhino's. The data I specifically want are ```id``` and ```text```.
+
+```json
+{
+created_at: 'Thu Apr 18 21:45:48 +0000 2019',
+  id: 1118994058628587500,
+  id_str: '1118994058628587520',
+  text:
+   'PLAIN TALK\nRHINO fiscal policies that will not play well with the conservative Republican base.',
+  source:
+   '<a href="http://twitter.com" rel="nofollow">Twitter Web Client</a>',
+  truncated: false,
+  in_reply_to_status_id: null,
+  in_reply_to_status_id_str: null,
+  in_reply_to_user_id: null,
+  in_reply_to_user_id_str: null,
+  in_reply_to_screen_name: null,
+  user:
+   { id: 853018218503454700,
+     id_str: '853018218503454720',
+     name: '_theOutpost_',
+     screen_name: '_theOutpost_',
+     location: 'Montana, USA',
+     url: null,
+     description:
+      'News from a Conservative Perspective. Traditional/Unorthodox/   Civil/Irreverent. Editorials. Weekly Book Recs. More. Celebrating Our American Culture.',
+     translator_type: 'none',
+     protected: false,
+     verified: false,
+     followers_count: 25430,
+     friends_count: 25885,
+     listed_count: 7,
+     favourites_count: 16410,
+     statuses_count: 60934,
+     created_at: 'Fri Apr 14 22:52:46 +0000 2017',
+     utc_offset: null,
+     time_zone: null,
+     geo_enabled: false,
+     lang: 'en',
+     contributors_enabled: false,
+     is_translator: false,
+     profile_background_color: 'F5F8FA',
+     profile_background_image_url: '',
+     profile_background_image_url_https: '',
+     profile_background_tile: false,
+     profile_link_color: '1DA1F2',
+     profile_sidebar_border_color: 'C0DEED',
+     profile_sidebar_fill_color: 'DDEEF6',
+     profile_text_color: '333333',
+     profile_use_background_image: true,
+     profile_image_url:
+      'http://pbs.twimg.com/profile_images/1012191514225623041/JkEcUxe5_normal.jpg',
+     profile_image_url_https:
+      'https://pbs.twimg.com/profile_images/1012191514225623041/JkEcUxe5_normal.jpg',
+     profile_banner_url:
+      'https://pbs.twimg.com/profile_banners/853018218503454720/1530160155',
+     default_profile: true,
+     default_profile_image: false,
+     following: null,
+     follow_request_sent: null,
+     notifications: null },
+  geo: null,
+  coordinates: null,
+  place: null,
+  contributors: null,
+  quoted_status_id: 1118944845412876300,
+  quoted_status_id_str: '1118944845412876289',
+  quoted_status:
+}
+
+```
+
+
+## Data lifecycle
+
+
+
+## Feedback
+
+
+
+## Week 1
+<details>
+  <summary>What did I do in Week 1</summary>
+
+# Real-Time Web | Crazy chatbox? 🤷‍
+
+**During the first week of this course I learned how to build an chatbox with socket.io. The purpose of this chatbox was to experiment and add a crazy feature. In this case I build something that replaces words with some emoji's. But it's main feature is that the application is real-time 🤓**
+
+[The application can be found here](https://real-time-web-chelsea.herokuapp.com/)
+
+![Chatbox](./docs/app.png)
+
+## Table of Contents
+* **[How to use](#how-to-use)**
+* **[Features](#features)**
+* **[Checklist](#checklist)**
 
 ## How to use
 
@@ -88,15 +204,18 @@ const emoticons = [
 ```
 What I learned about sockets is that sending an ```io.emit``` will send an message to everyone and ```broadcast``` will send it to any other person, but the person the data is coming from (client). I used state to set the username and an unique user id and to let the user see this in the chat. I used an user id, because people can choose the same nickname/ username and I hadn't had a databse set up yet.
 
-In the end I found it hard to come up with features to add to the application so I left it here. It will be nice to have something like an database behind it, so that the user will automatically come back in the chat as the person they were before. So their session isn't completely lost when they refresh the page. 
+In the end I found it hard to come up with features to add to the application so I left it here. It will be nice to have something like an database behind it, so that the user will automatically come back in the chat as the person they were before. So their session isn't completely lost when they refresh the page.
 
+## Checklist
+- [X] Setting up server with node.js and express
+- [X] Implement session with socket.io on server
+- [X] Replace words with emoji's
+- [X] Create username in chat
+- [X] Create unique users
+- [X] Divide code between server and client
+- [ ] Come up and create more features on the server
+- [ ] Set up localstorage with users and messages
 
-## Week 1
-<details>
-  <summary>What did I do in Week 1</summary>
-  See main readme
-
-  For my concept see week 2
 </details>
 
 ## Week 2
