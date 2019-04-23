@@ -1,13 +1,13 @@
 'use strict'
 
 const express = require('express')
+const app = express()
+const http = require('http').Server(app)
 const helmet = require('helmet')
 const path = require('path')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 const { decompress } = require('./helpers/decompress')
-const app = express()
-const http = require('http').Server(app)
 const { handleIndexRoute } = require('./routes/indexRoute')
 const io = require('socket.io')(http)
 const emoticons = [

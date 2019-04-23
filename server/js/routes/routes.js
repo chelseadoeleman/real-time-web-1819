@@ -1,4 +1,5 @@
-const fetch = require('node-fetch')
+require('dotenv').config()
+
 const userData = [{
     id: undefined,
     avatar: undefined,
@@ -7,15 +8,6 @@ const userData = [{
 }]
 
 const handleIndexRoute = async (request, response) => {
-    const url = 'https://api.twitter.com/1.1/search/tweets.json?q=rhino'
-    const res = await fetch(url)
-    const data = await res.json()
-
-    if(data) {
-        console.log(data)
-    } else {
-        console.error('not found')
-    }
     response.render('../views/index.ejs')
 }
 
@@ -23,18 +15,28 @@ const handleAvatarRoute = (request, response) => {
     response.render('../views/avatar.ejs')
 }
 
-const handleGameRoute = (request, response) => {
-    response.render('../views/game.ejs')
+const handleGameRoute = (tracktweets, io, state) => (request, response) => {
+    const { animal, nickname } = request.query
+
+    if(animal && nickname) {
+        response.render('../views/game.ejs', { animal, nickname })
+        io.on('connection', function(socket) {
+            console.log('user connected')
+            tracktweets.on('pandaChange', (dataChange) => {
+                socket.emit('pandaChanged', dataChange)
+            })
+            socket.on('lowerValue', () => {
+                state.set('total', state.get('total') - 1)
+            })
+        })
+    }
 }
 
 const createAvatar = () => {
-    // const { animal } = request.body
-    // console.log(animal)
-    const avatar = undefined
     //function that creates an avatar 
     //generate image and nickname
     if(avatar) {
-        response.status(304).redirect(`/game?avatar=${avatar.name}`)
+        response.status(304).redirect(`/game?animal=${animal}&nickname=${nickname}`)
     } else {
         response.status(409).redirect('/')
     }

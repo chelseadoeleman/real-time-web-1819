@@ -3,7 +3,7 @@ body, html {
     margin: 0;
 }
 
-body {
+body { 
     background-image: url('../assets/island.svg');
     background-size: cover;
     background-repeat: no-repeat;   
@@ -20,6 +20,15 @@ form {
     width: 50%;
     color: #090930;
     padding: 2em;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 1em;
+}
+
+h1 span {
+    color: #FAAF57;
 }
 
 legend {
@@ -76,4 +85,22 @@ button {
     border: none;
     font-size: 1em;
     border-radius: .5em;
+}
+
+.island-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 20%;
+}
+
+.island-wrapper span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #F9F871;
+    font-weight: 900;
+    font-size: 2em;
+    text-shadow: 3px 3px rgba(9, 9, 48, 0.75)
 }
