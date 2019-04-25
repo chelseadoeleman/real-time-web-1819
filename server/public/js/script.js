@@ -10,6 +10,7 @@ const svgs = {
 
 if (islandWrapper && avatars && counter && socket) {
     socket.on('connect', () => {
+        // TODO
         // socket.on('addAvatar', (animal, nickname) => {
         //     islandWrapper.innerHTML += `
         //         <div class="avatar-wrapper">
@@ -33,7 +34,6 @@ if (islandWrapper && avatars && counter && socket) {
                 if (livesElement) {
                     const currentAmountOfLives = Number(livesElement.innerText.split(': ')[1])
 
-                    console.log(currentAmountOfLives, lives)
                     livesElement.innerHTML = `Lives: ${lives}`
                 }
             }
@@ -51,21 +51,29 @@ if (islandWrapper && avatars && counter && socket) {
     async function setupAvatarListener(avatar) {
         const totalAmount = Number(counter.innerText)
         const lives = avatar.querySelector('.lives')
+        const amountOfLives = Number(lives.innerText.split(': ')[1])
+        const nickname = avatar.querySelector('span').innerText.toLowerCase()
+        const avatarType = avatar.querySelector('svg').classList.contains('panda') ? 'panda' : 'fox'
 
-        if (lives && totalAmount > 0) {
-            const amountOfLives = Number(lives.innerText.split(': ')[1])
-            const avatarName = avatar.querySelector('span')
-            const avatarType = avatar.querySelector('svg')
-
-            if (amountOfLives + 1 <= 100) {
-                const type = avatarType.classList.contains('panda') ? 'panda' : 'fox'
-                const animal = avatarName.innerText.toLowerCase()
-                await fetch(`${window.location.origin}/game/${type}/${animal}`, {method: 'POST'})
+        let parts = window.location.search.replace('?', '').split('&')
+        const [ animal, windowNickname ] = parts.map(part => {
+            if (part.includes('animal')) {
+                return part.replace('animal=', '')
+            } else {
+                return part.replace('nickname=', '')
             }
-        }
+        })
 
-        if(Number(counter.textContent) - 1 >= 0) {
-            await fetch(`${window.location.origin}/lower-tweets`, {method: 'POST'})
+        if (nickname === windowNickname && animal === avatarType) {
+            if (lives && totalAmount > 0) {
+                if (amountOfLives + 1 <= 100) {
+                    await fetch(`${window.location.origin}/game/${avatarType}/${nickname}`, {method: 'POST'})
+                }
+            }
+
+            if (Number(counter.textContent) - 1 >= 0) {
+                await fetch(`${window.location.origin}/lower-tweets`, {method: 'POST'})
+            }
         }
     }
 }
