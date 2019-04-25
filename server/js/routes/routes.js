@@ -30,25 +30,18 @@ const handleGameRoute = (tracktweets, io, state) => (request, response) => {
         response.render('../views/game.ejs', { total })
 
         io.on('connection', function(socket) {
-            io.emit('addAvatar', animal, nickname)
+            const users = state.get('users')
+            const existingUser = users.find(user => user.animal === animal && user.nickname.toLowerCase() === nickname.toLowerCase())
+            
+            if (!existingUser) {
+                io.emit('addAvatar', animal, nickname, 0)
+            } else {
+                io.emit('addAvatar', animal, nickname, existingUser.lives)
+            }
 
             tracktweets.on('tweetsChanged', (amountOfTweets) => {
                 io.emit('tweetsChanged', amountOfTweets)
             })
-        })
-
-        io.on('disconnect', () => {
-            // TODO
-            // const users = state.get('users')
-            // const existingUserIndex = users.findIndex(user => user.animal === animal && user.nickname === nickname)
-
-            // if (existingUserIndex > -1) {
-            //     users.splice(existingUserIndex, 1)
-            //     state.set('users', users)
-            //     io.emit('userLeft', {animal, nickname})
-            // } else {
-            //     console.error('Niet gevonden')
-            // }
         })
     }
 }

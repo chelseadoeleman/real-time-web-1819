@@ -10,7 +10,7 @@ const svgs = {
 
 if (islandWrapper && avatars && counter && socket) {
     socket.on('connect', () => {
-        socket.on('addAvatar', (animal, nickname) => {
+        socket.on('addAvatar', (animal, nickname, lives) => {
             const avatarMatch = document.querySelector(`#${animal}-${nickname.toLowerCase()}`)
 
             if (avatarMatch) {
@@ -20,7 +20,7 @@ if (islandWrapper && avatars && counter && socket) {
             islandWrapper.innerHTML += `
                 <div class="avatar-wrapper" id="${animal}-${nickname.toLowerCase()}">
                     <span>${nickname}</span>
-                    <span class="lives">Lives: 0</span>
+                    <span class="lives">Lives: ${lives}</span>
                     ${svgs[animal]}
                 </div>
             `
