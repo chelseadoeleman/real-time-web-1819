@@ -12,7 +12,7 @@ const handleGameRoute = (tracktweets, io, state) => (request, response) => {
     const { animal, nickname } = request.query
 
     const users = state.get('users')
-    const existingUser = users.find(user => user.animal === animal && user.nickname === nickname)
+    const existingUser = users.find(user => user.animal === animal && user.nickname.toLowerCase() === nickname.toLowerCase())
 
     if (!existingUser) {
         const newUser = {
@@ -27,14 +27,13 @@ const handleGameRoute = (tracktweets, io, state) => (request, response) => {
     const total = state.get('total')
 
     if(animal && nickname) {
-        response.render('../views/game.ejs', { users: state.get('users'), total })
+        response.render('../views/game.ejs', { total })
 
         io.on('connection', function(socket) {
-            // TODO
-            // socket.emit('addAvatar', animal, nickname)
+            io.emit('addAvatar', animal, nickname)
 
             tracktweets.on('tweetsChanged', (amountOfTweets) => {
-                socket.emit('tweetsChanged', amountOfTweets)
+                io.emit('tweetsChanged', amountOfTweets)
             })
         })
 
@@ -58,13 +57,13 @@ const increment = (state, io) => (request, response) => {
     const { animal, nickname } = request.params
 
     const users = state.get('users')
-    const userToUpdate = users.find(u => u.nickname === nickname && u.animal === animal)
-    const userIndex = users.findIndex(u => u.nickname === nickname && u.animal === animal)
+    const userToUpdate = users.find(u => u.nickname.toLowerCase() === nickname.toLowerCase() && u.animal === animal)
+    const userIndex = users.findIndex(u => u.nickname.toLowerCase() === nickname.toLowerCase() && u.animal === animal)
     
     userToUpdate.lives++
     users.splice(userIndex, 1, userToUpdate)
     
-    const updatedUser = users.find(u => u.nickname === nickname && u.animal === animal)
+    const updatedUser = users.find(u => u.nickname.toLowerCase() === nickname.toLowerCase() && u.animal === animal)
     
     state.set('users', users)
     io.emit('userUpdated', updatedUser)

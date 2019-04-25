@@ -10,37 +10,41 @@ const svgs = {
 
 if (islandWrapper && avatars && counter && socket) {
     socket.on('connect', () => {
-        // TODO
-        // socket.on('addAvatar', (animal, nickname) => {
-        //     islandWrapper.innerHTML += `
-        //         <div class="avatar-wrapper">
-        //             <span>${nickname}</span>
-        //             <span class="lives">Lives: 0</span>
-        //             ${svgs[animal]}
-        //         </div>
-        //     `
-        // })
+        socket.on('addAvatar', (animal, nickname) => {
+            const avatarMatch = document.querySelector(`#${animal}-${nickname.toLowerCase()}`)
+
+            if (avatarMatch) {
+                return
+            }
+
+            islandWrapper.innerHTML += `
+                <div class="avatar-wrapper" id="${animal}-${nickname.toLowerCase()}">
+                    <span>${nickname}</span>
+                    <span class="lives">Lives: 0</span>
+                    ${svgs[animal]}
+                </div>
+            `
+
+            const avatarWrappers = document.querySelectorAll('.avatar-wrapper')
+            avatarWrappers.forEach(avatarWrapper => {
+                avatarWrapper.addEventListener('click', () => setupAvatarListener(avatarWrapper))
+            })
+        })
 
         socket.on('tweetsChanged', (data) => {
             counter.textContent = Number(data)
         })
 
-        socket.on('userUpdated', ({nickname, animal, lives}) => {
-            const animalWrapper = document.querySelector(`#${animal}-${nickname}`)
+        socket.on('userUpdated', ({ nickname, animal, lives }) => {
+            const animalWrapper = document.querySelector(`#${animal}-${nickname.toLowerCase()}`)
             
             if (animalWrapper) {
                 const livesElement = animalWrapper.querySelector('.lives')
 
                 if (livesElement) {
-                    const currentAmountOfLives = Number(livesElement.innerText.split(': ')[1])
-
                     livesElement.innerHTML = `Lives: ${lives}`
                 }
             }
-        })
-
-        avatars.forEach(avatar => {
-            avatar.addEventListener('click', () => setupAvatarListener(avatar))
         })
     
         socket.on('valueChange', (data) => {
@@ -64,7 +68,7 @@ if (islandWrapper && avatars && counter && socket) {
             }
         })
 
-        if (nickname === windowNickname && animal === avatarType) {
+        if (nickname === windowNickname.toLowerCase() && animal === avatarType) {
             if (lives && totalAmount > 0) {
                 if (amountOfLives + 1 <= 100) {
                     await fetch(`${window.location.origin}/game/${avatarType}/${nickname}`, {method: 'POST'})
