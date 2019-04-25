@@ -10,12 +10,14 @@ const Twitter = require('twitter')
 const EventEmitter = require('events')
 const io = require('socket.io')(http)
 const trackTweets = new EventEmitter()
+require('events').EventEmitter.defaultMaxListeners = 1000
 const { State } = require('./utils/state')
 const { 
     handleIndexRoute,
     handleAvatarRoute,
-    handleGameRoute, 
-    createAvatar
+    handleGameRoute,
+    increment,
+    lowerTweets
 } = require('./routes/routes')
 
 const client = new Twitter({
@@ -27,11 +29,12 @@ const client = new Twitter({
 
 const state = new State()
 state.set('total', 0)
+state.set('users', [])
 
-const onData = (eventName) => (stream) => {
+const onData = () => (stream) => {
     stream.on('data', function(event) {
         state.set('total', state.get('total') + 1)
-        trackTweets.emit(`${eventName}Change`, state.get('total'))
+        trackTweets.emit(`tweetsChanged`, state.get('total'))
       })
     
       stream.on('error', function(error) {
@@ -39,8 +42,8 @@ const onData = (eventName) => (stream) => {
     })
 }
 
-client.stream('statuses/filter', {track: 'panda'}, onData('panda'))
-// client.stream('statuses/filter', {track: 'panda,fox,lion'}, onData('panda'))
+// client.stream('statuses/filter', {track: 'panda,fox,lion'}, onData())
+client.stream('statuses/filter', {track: 'panda'}, onData())
 
 app.use(helmet())
 app.use(express.static(path.join(__dirname, '../public')))
@@ -52,7 +55,8 @@ app.get('/', handleIndexRoute)
 app.get('/avatar', handleAvatarRoute)
 app.get('/game', handleGameRoute(trackTweets, io, state))
 
-app.post('/avatar', createAvatar)
+app.post('/game/:animal/:nickname', increment(state, io))
+app.post('/lower-tweets', lowerTweets(state, io))
 
 http.listen({ port: process.env.PORT || 4000 }), () => {
     console.log(`listening on port ${process.env.PORT || 4000}`)

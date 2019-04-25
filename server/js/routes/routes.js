@@ -1,12 +1,5 @@
 require('dotenv').config()
 
-const userData = [{
-    id: undefined,
-    avatar: undefined,
-    name: undefined,
-    lives: undefined
-}]
-
 const handleIndexRoute = async (request, response) => {
     response.render('../views/index.ejs')
 }
@@ -18,33 +11,83 @@ const handleAvatarRoute = (request, response) => {
 const handleGameRoute = (tracktweets, io, state) => (request, response) => {
     const { animal, nickname } = request.query
 
+    const users = state.get('users')
+    const existingUser = users.find(user => user.animal === animal && user.nickname === nickname)
+
+    if (!existingUser) {
+        const newUser = {
+            animal,
+            nickname,
+            lives: 0
+        }
+        
+        state.set('users', [...users, newUser])
+    }
+
+    const total = state.get('total')
+
     if(animal && nickname) {
-        response.render('../views/game.ejs', { animal, nickname })
+        response.render('../views/game.ejs', { users: state.get('users'), total })
+
         io.on('connection', function(socket) {
-            console.log('user connected')
-            tracktweets.on('pandaChange', (dataChange) => {
-                socket.emit('pandaChanged', dataChange)
+            // TODO
+            // socket.emit('addAvatar', animal, nickname)
+
+            tracktweets.on('tweetsChanged', (amountOfTweets) => {
+                socket.emit('tweetsChanged', amountOfTweets)
             })
-            socket.on('lowerValue', () => {
-                state.set('total', state.get('total') - 1)
-            })
+        })
+
+        io.on('disconnect', () => {
+            // TODO
+            // const users = state.get('users')
+            // const existingUserIndex = users.findIndex(user => user.animal === animal && user.nickname === nickname)
+
+            // if (existingUserIndex > -1) {
+            //     users.splice(existingUserIndex, 1)
+            //     state.set('users', users)
+            //     io.emit('userLeft', {animal, nickname})
+            // } else {
+            //     console.error('Niet gevonden')
+            // }
         })
     }
 }
 
-const createAvatar = () => {
-    //function that creates an avatar 
-    //generate image and nickname
-    if(avatar) {
-        response.status(304).redirect(`/game?animal=${animal}&nickname=${nickname}`)
-    } else {
-        response.status(409).redirect('/')
-    }
+const increment = (state, io) => (request, response) => {
+    const { animal, nickname } = request.params
+
+    const users = state.get('users')
+    const userToUpdate = users.find(u => u.nickname === nickname && u.animal === animal)
+    const userIndex = users.findIndex(u => u.nickname === nickname && u.animal === animal)
+    
+    userToUpdate.lives++
+    users.splice(userIndex, 1, userToUpdate)
+    
+    const updatedUser = users.find(u => u.nickname === nickname && u.animal === animal)
+    
+    state.set('users', users)
+    io.emit('userUpdated', updatedUser)
+
+    response.status(200).json({
+        success: true
+    })
+}
+
+const lowerTweets = (state, io) => (request, response) => {
+    state.set('total', state.get('total') - 1)
+    
+    io.emit('tweetsChanged', state.get('total'))
+
+    response.status(200).json({
+        success: true
+    })
 }
 
 module.exports = {
     handleIndexRoute,
     handleAvatarRoute,
     handleGameRoute,
-    createAvatar
+    increment,
+    lowerTweets
 }
