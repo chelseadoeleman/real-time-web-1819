@@ -231,12 +231,31 @@ In the end I found it hard to come up with features to add to the application so
 
   ## Concept
 
+  **First concept** 
   ![Concept](./docs/concept.JPG)
 
   I want to use the twitter API for real-time data and connect it to the IUCN Red List Api. However I had to ask permission for an accesskey, but I haven't received an answer yet. If I cannot get an accesskey I will just filter all tweets to rhino's to see how much awareness they get. This I want to project on a map with the Mapbox Api. As an extra feature I would like to add an linechart where you can view the amount of tweets on a timeline. If I get to use the IUCN Red List Api the user would also be able to view this linechart for a specific animal.
 
-  <hr>
-  <i>More coming soon...</i>
+<hr>
+
+ **Second concept see main Readme** 
+
+## Data lifecycle
+
+This is kinda how the data will flow through the application, but it probably will need some tweeking. In this overview a database is included, but maybe due to time management, this will not be my main priority to fix in the application, thus I will be storing the data in a variable/ json file for now.
+
+![Data lifecycle](./docs/data.jpg)
+
+
+## Feedback
+
+I would like to receive some feedback on my data lifecycle, because I still found it quite complicated to make. I also feel like I messed up here and there and it might not be complete yet. I also changed my concept, but wasn't fully approved yet, so I would like to get some feedback on that as well.
+
+* Sharpen concept, continue with animals you made avatars for.
+* Is there more user input and how does the user manipulate the data life cycle?
+* Add to keep track of specific animal tweets.
+* Update data lifecycle.
+
 </details>
 
 ## Week 3
@@ -251,12 +270,16 @@ In the end I found it hard to come up with features to add to the application so
 ## Checklist
 - [X] Setting up server with node.js and express
 - [X] Implement session with socket.io on server
-- [X] Replace words with emoji's
-- [X] Create username in chat
-- [X] Create unique users
-- [X] Divide code between server and client
-- [ ] Come up and create more features on the server
-- [ ] Set up localstorage with users and messages
+- [X] Create application setup
+- [X] Create avatar and nickname
+- [X] Get data from Twitter API
+- [X] Update count with the Twitter API
+- [X] User clicks on animal to update lives
+- [X] User is able to update avatar with sockets
+- [ ] Detect specific animal tweets
+- [ ] Add bar graph
+- [ ] Add lives bar
+- [ ] Fix styling
 
 ## Resources
 

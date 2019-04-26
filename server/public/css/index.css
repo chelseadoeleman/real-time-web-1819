@@ -3,12 +3,19 @@ body, html {
     margin: 0;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 body { 
-    background-image: url('../assets/island.svg');
+    background-image: url('../assets/background.svg');
     background-size: cover;
     background-repeat: no-repeat;   
     background-color: #090930;
+    min-width: 100vw;
+    min-height: 100vh;
     color: #fff;
+    overflow-x: hidden;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -44,28 +51,35 @@ fieldset {
 }
 
 .island-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    display: flex;
-    /* flex-wrap: wrap; */
+    background-image: url('../assets/island.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;  
+    margin: 0 auto;
+    display: flex; 
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid blue; */
+    max-width: 90vw;
+    min-height: 82vh;
+    max-height: 82vh;
 }
 
 .avatar-wrapper {
+    margin-top: -5em;
+    width: 30%;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
 }
 
 .avatar-wrapper svg {
-    position: relative;
-    min-width: 15%;
-    max-width: 25%;
+    min-width: 10%;
+    max-width: 30%;
     display: flex;
-    flex-direction: column;
 }
 
 .avatar-wrapper span {
@@ -76,12 +90,25 @@ fieldset {
     text-shadow: 3px 3px rgba(9, 9, 48, 0.75)
 }
 
-.avatar-wrapper input {
+
+.avatar-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-container input {
     opacity: 0;
 }
 
-.avatar-wrapper input:checked + svg{
-    border: 1px solid rgb(9, 9, 48);
+.avatar-container #lion {
+    width: 60%;
+}
+
+
+.avatar-container input:checked + svg{
+    border: .5px solid rgb(9, 9, 48);
     box-shadow: 5px 0px 28px -9px rgba(9, 9, 48, 0.75);
     border-radius: .5em;
 }
