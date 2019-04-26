@@ -140,3 +140,27 @@ button {
     font-size: 1em;
     border-radius: .5em;
 }
+
+a {
+    display: block;
+    min-width: 50%;
+    max-width: 50%;
+    text-align: center;
+    padding: 1em;
+    margin: 1em auto;
+    color: #ffffff;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: linear-gradient(120deg, #9F3F5D, #FAAF57 80%);
+    border: none;
+    font-size: 2em;
+    border-radius: .5em;
+    text-decoration: none;
+    font-weight: 900;
+}
+
+.title {
+    text-align: center;
+    margin: 1em auto;
+    font-weight: 900;
+    font-size: 6em;
+}
