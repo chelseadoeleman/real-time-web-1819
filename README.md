@@ -15,7 +15,7 @@
 * **[Resources](#resources)**
 * **[License](#license)**
 
-## How to install
+## How to install 
 
 Before installing make sure you have installed node.js and npm.
 Choose or make a new directory.
