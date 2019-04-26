@@ -52,7 +52,7 @@ I will try to describe this in the best way I can, but it might be a bit vague. 
 9. Rhinos
 10. Pangolin
 
-Every time a tweets is about one of these endagered animals the user is able to feed their avatar and keeping it alive and happy! But you have to be fast, because other player also want to keep their animals alive! After 15 minutes a bar will be lowered, reducing the amount of lives your animal has. This application is made to create more awareness for these animals. In extra addition if I have some time left I want to create a bar chart in D3 with all the animals to see which animal get's the more awareness of them all.
+Every time someone tweets is about one of these endagered animals the user is able to give their avatar healthpoints to keep it alive and happy! But you have to be fast, because other players also want to keep their animals alive! After 30 seconds the lives bar will be lowered, reducing the amount of lives your animal has. This application is made to create more awareness for these animals in the hopes more people will tweet about them. In extra addition if I have some time left I want to create a bar chart in D3 with all the animals to see which animal get's the more awareness of them all.
 
 ![Interaction](./docs/interaction.png)
 
@@ -135,10 +135,10 @@ created_at: 'Thu Apr 18 21:45:48 +0000 2019',
 
 ## Data lifecycle
 
-This is kinda how the data will flow through the application, but it probably will need some tweeking. In this overview a database is included, but maybe due to time management, this will not be my main priority to fix in the application, thus I will be storing the data in a variable/ json file for now.
-
 <details>
   <summary>Version 1</summary>
+  
+This is kinda how the data will flow through the application, but it probably will need some tweeking. In this overview a database is included, but maybe due to time management, this will not be my main priority to fix in the application, thus I will be storing the data in a variable/ json file for now.
 
 ![Data lifecycle](./docs/data.jpg)
 
