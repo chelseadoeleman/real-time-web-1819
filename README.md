@@ -143,10 +143,10 @@ This is kinda how the data will flow through the application, but it probably wi
 ![Data lifecycle](./docs/data.jpg)
 
 </details>
-<details>
+<details open>
   <summary>Version 2</summary>
 
-![Data lifecycle 2](./docs/data2.jpg)
+![Data lifecycle 2](./docs/data2.png)
 
 </details>
 
