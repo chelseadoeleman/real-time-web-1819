@@ -7,7 +7,6 @@
 * **[Concept](#concept)**
 * **[The Twitter API](#the-twitter-api)**
 * **[Data lifecycle](#data-lifecycle)**
-* **[Feedback](#feedback)**
 * **[Week 1](#week-1)**
 * **[Week 2](#week-2)**
 * **[Week 3](#week-3)**
@@ -38,7 +37,7 @@ npm install
 
 ## Concept
 
-I will try to describe this in the best way I can, but it might be a bit vague. I want to create an application where the user is able to create an avatar and keep it alive by giving it some "food". However there is catch the user is only able to give food to their avatar based on a certain amount of tweets about the top 10 most endangered animals as of right now. 
+I will try to describe this in the best way I can, but it might be a bit vague. I created an application where the user is able to create an avatar and keep it alive by giving it some "food". However there is catch, the user is only able to give food to their avatar based on a certain amount of tweets about the top 10 most endangered animals as of right now. 
 
 **Top 10 most endangered animals**
 1. Amur leopard
@@ -53,6 +52,8 @@ I will try to describe this in the best way I can, but it might be a bit vague. 
 10. Pangolin
 
 Every time someone tweets is about one of these endagered animals the user is able to give their avatar healthpoints to keep it alive and happy! But you have to be fast, because other players also want to keep their animals alive! After 30 seconds the lives bar will be lowered, reducing the amount of lives your animal has. This application is made to create more awareness for these animals in the hopes more people will tweet about them. In extra addition if I have some time left I want to create a bar chart in D3 with all the animals to see which animal get's the more awareness of them all.
+
+Due to time restrictions I didn't make any avatars based on the top 10 most endangered animals.
 
 ![Interaction](./docs/interaction.png)
 
