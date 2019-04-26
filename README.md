@@ -276,9 +276,12 @@ I would like to receive some feedback on my data lifecycle, because I still foun
 - [X] Update count with the Twitter API
 - [X] User clicks on animal to update lives
 - [X] User is able to update avatar with sockets
+- [X] Deploy on Heroku
 - [ ] Detect specific animal tweets
 - [ ] Add bar graph
 - [ ] Add lives bar
+- [ ] Delete user on disconnect
+- [ ] Keep track of data in a database or external file.
 - [ ] Fix styling
 
 ## Resources
