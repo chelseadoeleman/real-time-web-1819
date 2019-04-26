@@ -60,7 +60,7 @@ An 'sketch' of the most important screen in the application.
 
 ## The twitter API
 
-The twitter API makes use of an OAuth authorization. Personally I don't intent to use personal account information for my application. The twitter API also makes use of sockets to get real-time data. By creating a developers account an creating an app I was able to get all the specific API keys to get the right data from the API. This is an example of all the data from a specific tweet about rhino's. The data I specifically want are ```id``` and ```text```.
+The twitter API makes use of an OAuth authorization. Personally I don't intent to use personal account information for my application. The twitter API also makes use of sockets to get real-time data. By creating a developers account an creating an app I was able to get all the specific API keys to get the right data from the API. This is an example of all the data from a specific tweet about rhino's. The data I specifically want is ```text``` differentiate certain tweets about a specific animals. Because you're not able to create multiple streams.
 
 ```
 {
@@ -137,12 +137,18 @@ created_at: 'Thu Apr 18 21:45:48 +0000 2019',
 
 This is kinda how the data will flow through the application, but it probably will need some tweeking. In this overview a database is included, but maybe due to time management, this will not be my main priority to fix in the application, thus I will be storing the data in a variable/ json file for now.
 
+<details>
+  <summary>Version 1</summary>
+
 ![Data lifecycle](./docs/data.jpg)
 
+</details>
+<details>
+  <summary>Version 2</summary>
 
-## Feedback
+![Data lifecycle 2](./docs/data2.jpg)
 
-I would like to receive some feedback on my data lifecycle, because I still found it quite complicated to make. I also feel like I messed up here and there and it might not be complete yet. I also changed my concept, but wasn't fully approved yet, so I would like to get some feedback on that as well.
+</details>
 
 ## Week 1
 <details>
